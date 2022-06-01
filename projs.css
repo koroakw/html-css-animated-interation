@@ -1,0 +1,76 @@
+body{
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex; /*torna um elemento flex container*/
+    justify-content: center; /*deixa ele no centro, entre esquerda e direita*/
+    align-items: center;/*deixa ele no centro, entre topo e base*/
+}
+.card {
+    height: 400px;
+    width: 500px;
+    background-image: url(./download.jpg);/*carrega uma imagem de background*/
+    background-position: center;/*altera a posição do background*/
+    background-repeat: no-repeat;/*define se ele repete ou não*/
+    background-size: cover;/*altera o tamanho do background*/
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    filter: saturate(0.5);/*adiciona um filtro*/
+    color: white;
+    cursor: pointer;/*altera o tipo de cursor quando for pasar o cursor em cima*/
+    transition: 0.3s;
+
+}
+
+.card-wrapper {
+    text-align: center;/*alinha o texto*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.card-wrapper::before {
+    content: " ";/* deixa o elemento sem nada paga pegar spmente as bordas*/
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.3s;/*tempo para a realização da animação*/
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.card:hover {
+    filter: unset;/*desliga o filtro*/
+}
+.card:hover > .card-wrapper::before {
+    height: 300px;
+    width: 400px;
+    opacity: 1;
+}
+
+.card:hover > .card-wrapper p {
+    opacity: 1;
+    visibility: visible; /*torna a frase visível*/
+    font-size: 14px;
+}
